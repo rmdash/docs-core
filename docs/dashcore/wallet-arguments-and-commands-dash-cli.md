@@ -5,8 +5,8 @@ The `dash-cli` application provides a command-line option for accessing Dash Cor
 ## Usage
 
 > 🚧 Multiple wallet support
->
-> Since Dash Core 18.0 introduced the ability to have multiple wallets loaded at the same time, wallet-related RPCs require using the `-rpcwallet` option any time more than one wallet file is loaded. This is to ensure the RPC command is executed using the correct wallet. The syntax is:
+> 
+> Since Dash Core 18.0 introduced the ability to have multiple wallets loaded at the same time, wallet-related RPCs require using the `-rpcwallet` option any time more than one wallet file is loaded. This is to ensure the RPC command is executed using the correct wallet. The syntax is:  
 > `dash-cli -rpcwallet=<wallet-name> <command>`
 
 ```bash Send command
@@ -25,8 +25,10 @@ dash-cli [options] help
 dash-cli [options] help <command>
 ```
 
+
+
 > 📘 RPC Details
->
+> 
 > The list of RPCs can be found [here](../api/remote-procedure-call-quick-reference.md) with links to more detailed information. Using dash-cli, this information is available using the `dash-cli [options] help` and `dash-cli [options] help <command>` commands.
 
 ### Options:
@@ -103,6 +105,8 @@ dash-cli [options] help <command>
        Print version and exit
 ```
 
+
+
 ### Chain selection options:
 
 ```text
@@ -133,6 +137,10 @@ dash-cli [options] help <command>
   -llmqinstantsenddip0024=<quorum name>
        Override the default LLMQ type used for InstantSendDIP0024. (default:
        llmq_60_75, devnet-only)
+
+  -llmqplatform=<quorum name>
+       Override the default LLMQ type used for Platform. (default: llmq_100_67,
+       devnet-only)
 
   -minimumdifficultyblocks=<n>
        The number of blocks that can be mined with the minimum difficulty at
