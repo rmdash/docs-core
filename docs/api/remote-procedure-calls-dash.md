@@ -1091,7 +1091,7 @@ The `masternode count` RPC prints the number of all known masternodes.
 | `result`         | object | Required<br>(exactly 1) | Masternode count by mode                                               |
 | →<br>`total`     | int    | Required<br>(exactly 1) | Count of all masternodes                                               |
 | →<br>`enabled`   | int    | Required<br>(exactly 1) | Count of enabled masternodes                                           |
-| →<br>`detailed`  | object | Required<br>(exactly 1) | *Added in Dash Core 19.0*<br>Breakdown of regular masternodes and EvoNode |
+| →<br>`detailed`  | object | Required<br>(exactly 1) | *Added in Dash Core 19.0*<br>Breakdown of regular masternodes and evonodes |
 | →→<br>`regular`  | object | Required<br>(exactly 1) | Breakdown of regular masternodes                                       |
 | →→→<br>`total`   | int    | Required<br>(exactly 1) | Number of total regular masternodes                                    |
 | →→→<br>`enabled` | int    | Required<br>(exactly 1) | Number of enabled regular masternodes                                  |
