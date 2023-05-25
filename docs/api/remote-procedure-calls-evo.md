@@ -1159,7 +1159,7 @@ Result:
 }
 ```
 
-### ProTx Register EvoNode
+### ProTx Register HPMN
 
 The "protx register_hpmn" RPC functions similar to "protx register_fund_hpmn," but with an externally referenced collateral. The collateral is specified through "collateralHash" and "collateralIndex" and must be an unspent transaction output spendable by this wallet. It must also not be used by any other masternode. Requires wallet passphrase to be set with walletpassphrase call if wallet is encrypted.
 
