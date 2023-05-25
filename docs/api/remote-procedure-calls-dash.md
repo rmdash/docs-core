@@ -1095,9 +1095,9 @@ The `masternode count` RPC prints the number of all known masternodes.
 | →→<br>`regular`  | object | Required<br>(exactly 1) | Breakdown of regular masternodes                                       |
 | →→→<br>`total`   | int    | Required<br>(exactly 1) | Number of total regular masternodes                                    |
 | →→→<br>`enabled` | int    | Required<br>(exactly 1) | Number of enabled regular masternodes                                  |
-| →→<br>`hpmn`     | object | Required<br>(exactly 1) | Breakdown of EvoNode                                                      |
-| →→→<br>`total`   | int    | Required<br>(exactly 1) | Number of total EvoNode                                                   |
-| →→→<br>`enabled` | int    | Required<br>(exactly 1) | Number of enabled EvoNode                                                 |
+| →→<br>`hpmn`     | object | Required<br>(exactly 1) | Breakdown of evonodes                                                     |
+| →→→<br>`total`   | int    | Required<br>(exactly 1) | Number of total evonodes                                                  |
+| →→→<br>`enabled` | int    | Required<br>(exactly 1) | Number of enabled evonodes                                                |
 
 *Example from Dash Core 19.0.0*
 
