@@ -320,7 +320,7 @@ In HD wallets, the master chain code and master private key are the two pieces o
 
 A computer that provides second-tier Dash functionality (InstantSend, CoinJoin, decentralized governance). Masternodes are incentivized by receiving part of the block reward, but must hold 1000 Dash as collateral to prevent sybil attacks.
 
-See also: [Evolution Masternode](#evolution-masternode-evonode)
+See also: [Evolution masternode](#evolution-masternode-evonode)
 
 ## Merkle block
 
