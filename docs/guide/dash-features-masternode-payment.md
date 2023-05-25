@@ -6,4 +6,4 @@ On-chain masternode lists reduce the complexity of reward payments, make payment
 
 ## Evolution Masternodes
 
-Since evolution masternodes (EvoNodes) have four times more collateral than regular masternodes, EvoNodes will be paid in four consecutive blocks each time they are selected for payment to maintain the same incentive structure that regular masternodes have. Additionally, EvoNodes will receive 100% of the fees generated from Dash Platform since they are the only nodes that host it.
+Since Evolution masternodes (evonodes) have four times more collateral than regular masternodes, evonodes will be paid in four consecutive blocks each time they are selected for payment to maintain the same incentive structure that regular masternodes have. Additionally, evonodes will receive 100% of the fees generated from Dash Platform since they are the only nodes that host it.
