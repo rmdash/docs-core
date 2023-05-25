@@ -200,7 +200,7 @@ In the context of HD wallets, a public key or private key extended with the chai
 
 In the context of HD wallets, a public key or private key extended with the chain code to allow them to derive child keys.
 
-## Evolution Masternode (EvoNode)
+## Evolution masternode (EvoNode)
 
 Evolution Masternodes are a new type of [masternode](#masternode) created to host Dash Platform – a Web3 technology stack for building decentralized applications on the Dash network. The collateral required to own an EvoNode is 4000 DASH, as opposed to 1000 DASH for regular masternodes. EvoNodes serve Platform along with Core, while regular masternodes only serve Core. The recommended specs for EvoNodes are higher than those for regular masternodes.
 
