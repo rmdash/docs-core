@@ -1301,7 +1301,7 @@ ec66f97568727a9e5188acb3ccf680086ae11217236efcccd67b0b72e83c79a043d6c6d064378fdd
 
 ### ProTx Register Fund HPMN
 
-The "protx register_fund_hpmn" RPC creates, funds, and sends a ProTx to the network. The resulting transaction will move 4000 Dash to the address specified by collateralAddress and will then function as the collateral of your EvoNode. A few of the limitations you see in the arguments are temporary and might be lifted after DIP3 is fully deployed. Requires wallet passphrase to be set with walletpassphrase call if wallet is encrypted.
+The "protx register_fund_hpmn" RPC creates, funds, and sends a ProTx to the network. The resulting transaction will move 4000 Dash to the address specified by collateralAddress and will then function as the collateral of your evonode. A few of the limitations you see in the arguments are temporary and might be lifted after DIP3 is fully deployed. Requires wallet passphrase to be set with walletpassphrase call if wallet is encrypted.
 
 *Parameter #1---collateral address*
 
