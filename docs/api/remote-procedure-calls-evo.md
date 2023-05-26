@@ -1534,7 +1534,7 @@ Result:
 }
 ```
 
-### ProTx Update Service EvoNode
+### ProTx Update Service HPMN
 
 The "protx update_service_hpmn" RPC creates and sends a ProUpServTx to the network. This will update the IP address and the Platform fields of an evonode. If this is done for an evonode that was PoSe-banned, the ProUpServTx will also revive this evonode.
 
