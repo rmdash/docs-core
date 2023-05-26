@@ -1428,7 +1428,7 @@ c207ebd525793ccb43f60ce34a5cd5f4011976a9145a375814e9caf5b8575a8221be246457e5c5c2
 8d88ac45084a0f63d6f06767c941ffd5af4ed17ea0e28afa481e46b2bdbadbd8446c8c00\
 ```
 
-### ProTx Register Prepare EvoNode
+### ProTx Register Prepare HPMN
 
 The "protx register_prepare_hpmn" RPC creates an unsigned ProTx and a message that must be signed externally with the private key that corresponds to collateralAddress to prove collateral ownership. The prepared transaction will also contain inputs and outputs to cover fees.
 
