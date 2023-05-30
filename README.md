@@ -1,6 +1,6 @@
 # Dash Core Docs
 
-[![Build status](https://img.shields.io/readthedocs/docs-core-core/stable)](https://readthedocs.org/projects/docs-core-core/builds/)
+[![Build status](https://img.shields.io/readthedocs/dash-docs-core/stable)](https://readthedocs.org/projects/dash-docs-core/builds/)
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen)](https://github.com/RichardLitt/standard-readme)
 
 Dash Core Documentation
