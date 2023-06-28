@@ -1,8 +1,8 @@
 ```{eval-rst}
 .. _dashcore-arguments-and-commands:
 .. meta::
-  :title: Dash Wallet Arguments and Commnads
-  :description: All command-line options (except for -conf) may be specified in a configuration file, and all configuration file options may also be specified on the command line.
+  :title: Dash Core Arguments and Commands
+  :description: Overview of arguments and commands for the components distributed with Dash Core, including dashd, dash-qt, and dash-cli.
 ```
 
 # Arguments and Commands
