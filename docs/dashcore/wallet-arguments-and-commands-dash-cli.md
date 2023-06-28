@@ -1,7 +1,7 @@
 ```{eval-rst}
 .. _dashcore-arguments-and-commands-dash-cli:
 .. meta::
-  :title: dash-cli Wallet Arguments and Commnads
+  :title: dash-cli Wallet Arguments and Commands
   :description: The section includes command-line option for accessing Dash Core RPCs via the dash-cli application.
 ```
 
