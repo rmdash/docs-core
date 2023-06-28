@@ -2,7 +2,7 @@
 .. _dashcore-arguments-and-commands-dashd:
 .. meta::
   :title: dashd Arguments and Commnads
-  :description: The following section shows all available options for dashhd including debug options that are not normally displayed.
+  :description: The following section shows all available options for dashd including debug options that are not normally displayed.
 ```
 
 # dashd
