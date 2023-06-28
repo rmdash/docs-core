@@ -1,7 +1,7 @@
 ```{eval-rst}
 .. _dashcore-arguments-and-commands-dash-qt:
 .. meta::
-  :title: dash-qt Wallet Arguments and Commnads
+  :title: dash-qt Wallet Arguments and Commands
   :description: The section shows all available options including debug options that are not normally displayed for dash-qt
 ```
 
