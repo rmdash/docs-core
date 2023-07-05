@@ -56,7 +56,7 @@ Usage:
 
 ### dash-cli
 
-View all [option details for dash-cli](../dashcore/wallet-arguments-and-commands-dash-cli.md).
+View all [command line options for dash-cli](../dashcore/wallet-arguments-and-commands-dash-cli.md).
 
 ```bash
 Usage:
