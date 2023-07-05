@@ -47,7 +47,7 @@ Usage:
 
 ### dash-qt
 
- View all [option details for dash-qt](../dashcore/wallet-arguments-and-commands-dash-qt.md).
+ View all [command line options for dash-qt](../dashcore/wallet-arguments-and-commands-dash-qt.md).
 
 ```bash
 Usage:
