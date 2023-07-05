@@ -68,7 +68,7 @@ Usage:
 
 ### dash-tx
 
-View all [option details for dash-tx](../dashcore/wallet-arguments-and-commands-dash-tx.md).
+View all [command line options for dash-tx](../dashcore/wallet-arguments-and-commands-dash-tx.md).
 
 ```bash
 Usage:
