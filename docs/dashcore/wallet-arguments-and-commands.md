@@ -38,7 +38,7 @@ The following sections provide details of the command line arguments for each of
 
 ### dashd
 
-View all [option details for dashd](../dashcore/wallet-arguments-and-commands-dashd.md).
+View all [command line options for dashd](../dashcore/wallet-arguments-and-commands-dashd.md).
 
 ```bash
 Usage:
