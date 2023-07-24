@@ -1384,43 +1384,42 @@ Name | Type | Presence | Description
 →→→<br>`descendent` | number | Optional<br>(0 or 1) | **Added in Dash Core 0.17.0**<br>Modified fees (see above) of in-mempool descendants (including this one) in DASH
 →<br>`depends` | array | Required<br>(exactly 1) | An array holding TXIDs of unconfirmed transactions this transaction depends upon (parent transactions).  Those transactions must be part of a block before this transaction can be added to a block, although all transactions may be included in the same block.  The array may be empty
 → →<br>Depends TXID | string | Optional (0 or more) | The TXIDs of any unconfirmed transactions this transaction depends upon, encoded as hex in RPC byte order
+→<br>`unbroadcast` | bool | Required<br>(exactly 1) | **Added in Dash Core 20.0.0**<br>True if this transaction  is currently unbroadcast (initial broadcast not yet acknowledged by any peers)
 →<br>`instantlock` | bool | Required<br>(exactly 1) | True if this transaction was locked via InstantSend
 
-*Example from Dash Core 0.17.0*
+*Example from Dash Core 20.0.0*
 
 ``` bash
-dash-cli getmempoolentry  d64eb30e5435e7a4564df9d06525a8ab\
-48858fdaf111661d1e7874a72cebc132
+dash-cli getmempoolentry  true
 ```
 
 Result:
 
 ``` json
-{
-  "fees": {
-    "base": 0.00000374,
-    "modified": 0.00000374,
-    "ancestor": 0.00000374,
-    "descendant": 0.00000600
-  },
-  "size": 373,
-  "fee": 0.00000374,
-  "modifiedfee": 0.00000374,
-  "time": 1610552403,
-  "height": 425538,
-  "descendantcount": 2,
-  "descendantsize": 599,
-  "descendantfees": 600,
-  "ancestorcount": 1,
-  "ancestorsize": 373,
-  "ancestorfees": 374,
-  "depends": [
-  ],
-  "spentby": [
-    "dc63e7f6929658feade06fec1eeaf43b3160095d66a9b59f57e77e56c20241fc"
-  ],
-  "instantlock": true
-}
+    "fees": {
+      "base": 0.00000600,
+      "modified": 0.00000600,
+      "ancestor": 0.00000600,
+      "descendant": 0.00000600
+    },
+    "vsize": 191,
+    "fee": 0.00000600,
+    "modifiedfee": 0.00000600,
+    "time": 1690232742,
+    "height": 1909428,
+    "descendantcount": 1,
+    "descendantsize": 191,
+    "descendantfees": 600,
+    "ancestorcount": 1,
+    "ancestorsize": 191,
+    "ancestorfees": 600,
+    "depends": [
+    ],
+    "spentby": [
+    ],
+    "instantlock": "true",
+    "unbroadcast": false
+  }
 ```
 
 *See also*
@@ -1447,8 +1446,9 @@ Name | Type | Presence | Description
 →<br>`mempoolminfee` | number | Required<br>(exactly 1) | *Added in Bitcoin Core 0.12.0*<br><br>The lowest fee per kilobyte paid by any transaction in the memory pool
 →<br>`mempoolminfee` | number | Required<br>(exactly 1) | *Added in Dash Core 0.16.0*<br><br>The current minimum relay fee for transactions
 →<br>`instantsendlocks` | number (int) | Required<br>(exactly 1) | *Added in Dash Core 0.15.0*<br><br>Number of unconfirmed InstantSend locks
+→<br>`unbroadcastcount` | number (int) | Required<br>(exactly 1) | *Added in Dash Core 20.0.0*<br><br>Current number of transactions that haven't passed initial broadcast yet
 
-*Example from Dash Core 0.16.0*
+*Example from Dash Core 20.0.0*
 
 ``` bash
 dash-cli -testnet getmempoolinfo
@@ -1458,13 +1458,15 @@ Result:
 
 ``` json
 {
-  "size": 3,
-  "bytes": 1857,
-  "usage": 5536,
+  "loaded": true,
+  "size": 69,
+  "bytes": 49963,
+  "usage": 139440,
   "maxmempool": 300000000,
   "mempoolminfee": 0.00001000,
   "minrelaytxfee": 0.00001000,
-  "instantsendlocks": 2
+  "instantsendlocks": 69,
+  "unbroadcastcount": 0
 }
 ```
 

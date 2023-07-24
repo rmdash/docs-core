@@ -1610,15 +1610,13 @@ _Result---the masternode list_
 | `result`             | object/null | Required<br>(exactly 1) | Information about the masternode sync status                                                  |
 | →<br>Masternode Info | string      | Required<br>(1 or more) | The requested masternode info. Output varies based on selected `mode` and `filter` parameters |
 
-_Example from Dash Core 19.0.0_
+_Example from Dash Core 20.0.0_
 
 Get unfiltered Masternode list in default mode
 
 ``` bash
 dash-cli -testnet masternodelist
 ```
-
-
 
 Result (truncated):
 
