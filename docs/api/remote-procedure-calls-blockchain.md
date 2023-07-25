@@ -1519,21 +1519,25 @@ Name | Type | Presence | Description
 → → →<br>Depends TXID | string | Optional (0 or more) | The TXIDs of any unconfirmed transactions this transaction depends upon, encoded as hex in RPC byte order
 → →<br>`spentby` | array | Required<br>(exactly 1) | **Added in Dash Core 0.17.0**<br>An array of unconfirmed transactions spending outputs from this transaction
 → → →<br>TXID | string | Optional (0 or more) | The TXIDs of any unconfirmed transactions spending from this transaction
+→ →<br>`unbroadcast` | bool | Required<br>(exactly 1) | **Added in Dash Core 20.0.0**<br>True if this transaction  is currently unbroadcast (initial broadcast not yet acknowledged by any peers)
 → →<br>`instantlock` | bool | Required<br>(exactly 1) | *Added in Dash Core 0.12.3*<br><br>Set to `true` for locked InstantSend transactions (masternode quorum has locked the transaction inputs via `islock` message). Set to `false` if the masternodes have not approved the InstantSend transaction
 
-*Examples from Dash Core 0.17.0*
-
-The default (`false`):
+*Examples from Dash Core 20.0.0*
 
 ``` bash
-dash-cli getrawmempool
+dash-cli getrawmempool false
 ```
 
 Result:
 
 ``` json
 [
-  "9bf373838dd68dfb7d670af15a7414fba400a7db91b7a0ac390b6f190daeb462"
+  "68e2bad7194231c2b1fab812540904fd0976aa6e0a0d29d0b05a8706866a1991",
+  "5622c1b8c68fb7364089ee544dd3ccb6cf0a419be88c4f0652f20b2db980bc39",
+  "e12a4508709e3516fb31ddbe21bf5d23581d210f806dc6ab28df77f7e85229bd",
+  "090d20347a4638ef4317d735a999a992b9f4c006369fbed79c41786b7ad1a6bf",
+  "d06a9f34e3d2db92bae81ac5c6b7830d5d66e7c42cc6b37f28f82d4f1eaf1359",
+  "1526e24f8015dd8547580e5af56b103a60eda08698c208d494cf1a601c9bc4b1"
 ]
 ```
 
@@ -1546,30 +1550,30 @@ dash-cli getrawmempool true
 Result:
 
 ``` json
-{
-  "9bf373838dd68dfb7d670af15a7414fba400a7db91b7a0ac390b6f190daeb462": {
+b0940781e8ef444e4eb51fbdbbe4bafa61f639c3d757a08c9ec178d11c79e26a": {
     "fees": {
-      "base": 0.00000374,
-      "modified": 0.00000374,
-      "ancestor": 0.00000374,
-      "descendant": 0.00000374
+      "base": 0.00002260,
+      "modified": 0.00002260,
+      "ancestor": 0.00002260,
+      "descendant": 0.00002260
     },
-    "size": 373,
-    "fee": 0.00000374,
-    "modifiedfee": 0.00000374,
-    "time": 1610551773,
-    "height": 425536,
+    "vsize": 226,
+    "fee": 0.00002260,
+    "modifiedfee": 0.00002260,
+    "time": 1690285208,
+    "height": 1909759,
     "descendantcount": 1,
-    "descendantsize": 373,
-    "descendantfees": 374,
+    "descendantsize": 226,
+    "descendantfees": 2260,
     "ancestorcount": 1,
-    "ancestorsize": 373,
-    "ancestorfees": 374,
+    "ancestorsize": 226,
+    "ancestorfees": 2260,
     "depends": [
     ],
     "spentby": [
     ],
-    "instantlock": true
+    "instantlock": "true",
+    "unbroadcast": false
   }
 }
 ```
