@@ -434,15 +434,13 @@ _See also_
 
 ## GetAddressInfo
 
-> 👍
->
-> Added in Dash Core 0.17.0
+**Added in Dash Core 0.17.0**
 
 > 📘
 >
 > Requires [wallet](../resources/glossary.md#wallet) support (**unavailable on masternodes**).
 
-The [`getaddressinfo` RPC](../api/remote-procedure-calls-wallet.md#getaddressinfo) returns information about the given Dash address. Note: Some information requires the address to be in the wallet.
+The [`getaddressinfo` RPC](../api/remote-procedure-calls-wallet.md#getaddressinfo) `labels` field now returns an array of label name strings. Previously, it returned an array of JSON objects containing `name` and `purpose` key/value pairs, which is now deprecated and will be removed in 0.21. To re-enable the previous behavior, launch bitcoind with `-deprecatedrpc=labelspurpose`.
 
 _Parameter #1---a P2PKH or P2SH address_
 
@@ -1933,6 +1931,7 @@ _Parameter #4---include_removed_
 | → <br>`chainlock`            | bool            | Required<br>(exactly 1)     | _Added in Dash Core 0.14.0_<br><br> If set to `true`, this transaction is in a block that is locked (not susceptible to a chain re-org)                                                                                                                                                                                                                                                       |
 | → <br>`generated`            | bool            | Optional<br>(0 or 1)        | Set to `true` if the transaction is a coinbase.  Not returned for regular transactions                                                                                                                                                                                                                                                                                                        |
 | → <br>`blockhash`            | string (hex)    | Optional<br>(0 or 1)        | The hash of the block on the local best block chain which includes this transaction, encoded as hex in RPC byte order.  Only returned for confirmed transactions                                                                                                                                                                                                                              |
+| → <br>`blockheight`            | string (hex)    | Optional<br>(0 or 1)        | The block height containing the transaction.                                                                                                                                                                                                                              |
 | → <br>`blockindex`           | number (int)    | Optional<br>(0 or 1)        | The index of the transaction in the block that includes it.  Only returned for confirmed transactions                                                                                                                                                                                                                                                                                         |
 | → <br>`blocktime`            | number (int)    | Optional<br>(0 or 1)        | The block header time (Unix epoch time) of the block on the local best block chain which includes this transaction.  Only returned for confirmed transactions                                                                                                                                                                                                                                 |
 | → <br>`txid`                 | string (hex)    | Required<br>(exactly 1)     | The TXID of the transaction, encoded as hex in RPC byte order                                                                                                                                                                                                                                                                                                                                 |
@@ -2065,6 +2064,8 @@ _Result---payment details_
 | → →<br>`generated`          | bool            | Optional<br>(0 or 1)    | Set to `true` if the transaction is a coinbase.  Not returned for regular transactions or _move_ category payments                                                                                                                                                                                                                                                                 |
 | → →<br>`trusted`            | bool            | Optional<br>(0 or 1)    | Indicates whether we consider the outputs of this unconfirmed transaction safe to spend.  Only returned for unconfirmed transactions                                                                                                                                                                                                                                               |
 | → →<br>`blockhash`          | string (hex)    | Optional<br>(0 or 1)    | The hash of the block on the local best block chain which includes this transaction, encoded as hex in RPC byte order.  Only returned for confirmed transactions                                                                                                                                                                                                                   |
+| → →<br>`blockheight`        | string (hex)    | Optional<br>(0 or 1)    | The block height containing the transaction.
+                                                        |
 | → →<br>`blockindex`         | number (int)    | Optional<br>(0 or 1)    | The index of the transaction in the block that includes it.  Only returned for confirmed transactions                                                                                                                                                                                                                                                                              |
 | → →<br>`blocktime`          | number (int)    | Optional<br>(0 or 1)    | The block header time (Unix epoch time) of the block on the local best block chain which includes this transaction.  Only returned for confirmed transactions                                                                                                                                                                                                                      |
 | → →<br>`txid`               | string (hex)    | Optional<br>(0 or 1)    | The TXID of the transaction, encoded as hex in RPC byte order.  Not returned for _move_ category payments                                                                                                                                                                                                                                                                          |
@@ -2090,24 +2091,25 @@ Result:
 ```json
 [
   {
-    "address": "ySjAeJ7CmHZrkXaxv54X9ZnPZqAgTSabhK",
+    "address": "yeTgphnEhKjfTx2f57Ncf4AHLPhGKo1pyN",
     "category": "send",
-    "amount": -0.50000000,
+    "amount": -0.10000000,
     "label": "",
-    "vout": 0,
-    "fee": -0.00000226,
-    "confirmations": 14,
+    "vout": 1,
+    "fee": -0.00002136,
+    "confirmations": 641,
     "instantlock": true,
     "instantlock_internal": false,
     "chainlock": true,
-    "blockhash": "000000a37134cb52e7310f651131a6c168e7c0ef87f84260b7811c202e011f0f",
-    "blockindex": 2,
-    "blocktime": 1610645212,
-    "txid": "06697c9f9c713473ba00b3d96118546b88d1da89adaae89ea6b760fea23ebad0",
+    "blockhash": "000000f57f3228da3c544cd9a44e9b869648f0acd5e4cddcda10d576545a6363",
+    "blockheight": 874910,
+    "blockindex": 11,
+    "blocktime": 1690306466,
+    "txid": "14974ceb63f214fbb6a6876944a03b2c9e8a519b5115b3f18c76ef27994486df",
     "walletconflicts": [
     ],
-    "time": 1610645190,
-    "timereceived": 1610645190,
+    "time": 1690306449,
+    "timereceived": 1690306449,
     "abandoned": false
   }
 ]

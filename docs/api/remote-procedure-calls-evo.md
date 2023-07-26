@@ -516,6 +516,21 @@ Result:
   }
 ]
 ```
+### ProTx List Diff
+
+The `protx listdiff` RPC calculates a full MN list diff between two masternode lists.
+
+*Parameter #1---baseBlock*
+
+| Name        | Type    | Presence             | Description              |
+| ----------- | ------- | -------------------- | ------------------------ |
+| `baseBlock` | numeric | Required (exactly 1) | The starting block height|
+
+*Parameter #2---block*
+
+| Name    | Type    | Presence             | Description            |
+| ------- | ------- | -------------------- | -----------------------|
+| `block` | numeric | Required (exactly 1) | The ending block height|
 
 ### ProTx Register
 
