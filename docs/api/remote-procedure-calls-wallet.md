@@ -928,7 +928,7 @@ _Parameter #2---whether to include watch-only addresses in details and calculati
 | ------------------ | ---- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Include Watch-Only | bool | Optional<br>(0 or 1) | If set to `true`, include watch-only addresses in details and calculations as if they were regular addresses belonging to the wallet.  If set to `false` (the default for non-watching only wallets), treat watch-only addresses as if they didn't belong to this wallet.<br>As of Dash Core 18.1, `true` is the default for watching-only wallets. |
 
-_Parameter #3---determining a decoded field (verbose)_
+_Parameter #3---whether or not to include the decoded transaction_
 
 | Name    | Type | Presence                | Description                                                                                                      |
 | ------- | ---- | ----------------------- | ---------------------------------------------------------------------------------------------------------------  |
