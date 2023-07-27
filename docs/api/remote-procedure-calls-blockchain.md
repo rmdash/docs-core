@@ -1207,7 +1207,7 @@ Name | Type | Presence | Description
 → →<br>`spentby` | array | Required<br>(exactly 1) |  **Added in Dash Core 20.0.0**<br>An array of unconfirmed transactions spending outputs from this transaction
 → → →<br>TXID | string | Optional (0 or more) | The TXIDs of any unconfirmed transactions spending from this transaction
 → →<br>`unbroadcast` | bool | Required<br>(exactly 1) | **Added in Dash Core 20.0.0**<br>True if this transaction  is currently unbroadcast (initial broadcast not yet acknowledged by any peers)
-→ →<br>`instantlock` | bool | Required<br>(exactly 1) |  **Added in Dash Core 20.0.0**<br><br>Set to `true` if this transaction was locked via InstantSend
+→ →<br>`instantlock` | bool | Required<br>(exactly 1) | Set to `true` if this transaction was locked via InstantSend
 
 *Examples from Dash Core 20.0.0*
 
