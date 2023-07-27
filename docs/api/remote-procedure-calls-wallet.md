@@ -78,7 +78,7 @@ _See also: none_
 >
 > Requires [wallet](../resources/glossary.md#wallet) support (**unavailable on masternodes**)
 
-The [`addmultisigaddress` RPC](../api/remote-procedure-calls-wallet.md#addmultisigaddress) adds a P2SH multisig address to the wallet. Each key is a Dash address or hex-encoded public key. This functionality is only intended for use with non-watchonly addresses. See [`importaddress` RPC] (../api/remote-procedure-calls-wallet.html#importaddress) for watchonly p2sh address support. If 'label' is specified, assign address to that label.
+The [`addmultisigaddress` RPC](../api/remote-procedure-calls-wallet.md#addmultisigaddress) adds a P2SH multisig address to the wallet. Each key is a Dash address or hex-encoded public key. This functionality is only intended for use with non-watchonly addresses. See [`importaddress` RPC](../api/remote-procedure-calls-wallet.html#importaddress) for watchonly p2sh address support. If 'label' is specified, assign address to that label.
 
 _Parameter #1---the number of signatures required_
 
