@@ -434,7 +434,7 @@ _See also_
 
 ## GetAddressInfo
 
-**Added in Dash Core 0.17.0**
+__Added in Dash Core 0.17.0__
 
 > 📘
 >
