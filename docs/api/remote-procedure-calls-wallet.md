@@ -1951,7 +1951,7 @@ _Example from Dash Core 20.0.0_
 Get all transactions since a particular block (including watch-only transactions) and the header hash of the sixth most recent block.
 
 ```bash
-dash-cli -testnet listsinceblock / 0000015fb32d785efb2f792a194a14c11ef04141bb2778c04cea447cdccb4b6e / 6 true true
+dash-cli -testnet listsinceblock 0000015fb32d785efb2f792a194a14c11ef04141bb2778c04cea447cdccb4b6e 6 true true
 ```
 
 Result (edited to show only two payments):
