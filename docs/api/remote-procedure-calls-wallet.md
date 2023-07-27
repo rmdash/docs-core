@@ -107,18 +107,17 @@ _Result---P2SH address and hex-encoded redeem script_
 | →<br>`address`      | string (base58) | Required<br>(exactly 1) | The P2SH address for this multisig redeem script |
 | →<br>`redeemScript` | string (hex)    | Required<br>(exactly 1) | The multisig redeem script encoded as hex        |
 
-_Example from Dash Core 0.17.0_
+_Example from Dash Core 20.0.0_
 
 Adding a 1-of-2 P2SH multisig address with the label "test label" by combining one P2PKH address and one full public key:
 
 ```bash
-dash-cli -testnet addmultisigaddress 1 '''
+dash-cli -testnet -rpcwallet="" addmultisigaddress 1 '''
   [
     "ySxkBWzPwMrZLAY9ZPitMnSwf4NSUBPbiH",
     "02594523b004e82849a66b3da096b1e680bf2ed5f7d03a3443c027aa5777bb6223"
   ]
-''' \
- 'test label'
+'''  'test label'
 ```
 
 Result:
@@ -126,7 +125,8 @@ Result:
 ```json
 {
   "address": "8jYUv8hJcbSUPbwYmzp1XMPU6SXoic3hwi",
-  "redeemScript": "512103283a224c2c014d1d0ef82b00470b6b277d71e227c0e2394f9baade5d666e57d32102594523b004e82849a66b3da096b1e680bf2ed5f7d03a3443c027aa5777bb622352ae"
+  "redeemScript": "512103283a224c2c014d1d0ef82b00470b6b277d71e227c0e2394f9baade5d666e57d32102594523b004e82849a66b3da096b1e680bf2ed5f7d03a3443c027aa5777bb622352ae",
+  "descriptor": "sh(multi(1,[48de9d39]03283a224c2c014d1d0ef82b00470b6b277d71e227c0e2394f9baade5d666e57d3,[dec361f1]02594523b004e82849a66b3da096b1e680bf2ed5f7d03a3443c027aa5777bb6223))#vtc5zmh2"
 }
 ```
 
@@ -972,7 +972,7 @@ _Result---a description of the transaction_
 | →<br>`hex`                   | string (hex)    | Required<br>(exactly 1)     | The transaction in serialized transaction format                                                                                                                                                                                                                                                                                                                                              |
 | →<br>`decoded`               | object          | Optional<br>(0 or 1)        | the decoded transaction (only present when `verbose` is passed), equivalent to the`verbose` is passed), equivalent to the RPC decoderawtransaction method, or the RPC getrawtransaction method when `verbose` is passed.                                                                                                                                                                                                                                                                                                                                             |
 
-_Example from Dash Core 0.17.0_
+_Example from Dash Core 20.0.0_
 
 ```bash
 dash-cli -testnet gettransaction \
@@ -983,20 +983,21 @@ Result:
 
 ```json
 {
-  "amount": -50.00000000,
+    "amount": -50.00000000,
   "fee": -0.00030000,
-  "confirmations": 359811,
+  "confirmations": 810136,
   "instantlock": true,
   "instantlock_internal": false,
   "chainlock": true,
   "blockhash": "00000a01007be2912c3123085534b58d341cb5e5980b967e8dcc021089487a1e",
+  "blockheight": 65859,
   "blockindex": 1,
   "blocktime": 1553290594,
   "txid": "c099c882745ad150e9b2a55ef5818683c7ef597e1e5fc20856c67eabc3778ccc",
   "walletconflicts": [
   ],
-  "time": 1553290584,
-  "timereceived": 1553290584,
+  "time": 1553290594,
+  "timereceived": 1688046610,
   "details": [
     {
       "address": "ycCsAUKsjdmoP4qAXiS1cjYA4ixM48zJWe",
@@ -1945,14 +1946,12 @@ _Parameter #4---include_removed_
 | →<br>`removed`               | array           | Optional<br>(0 or 1)        | Structure is the same as `transactions`. Only present if `include_removed` is `true`.<br>_Note_: transactions that were re-added in the active chain will appear as-is in this array, and may thus have a positive confirmation count.                                                                                                                                                        |
 | →<br>`lastblock`             | string (hex)    | Required<br>(exactly 1)     | The header hash of the block with the number of confirmations specified in the _target confirmations_ parameter, encoded as hex in RPC byte order                                                                                                                                                                                                                                             |
 
-_Example from Dash Core 0.17.0_
+_Example from Dash Core 20.0.0_
 
 Get all transactions since a particular block (including watch-only transactions) and the header hash of the sixth most recent block.
 
 ```bash
-dash-cli -testnet listsinceblock \
-              0000000001fc119ea77e0c67783227fb9d55386125179ea5597109d311af2337 \
-              6 true true
+dash-cli -testnet listsinceblock / 0000015fb32d785efb2f792a194a14c11ef04141bb2778c04cea447cdccb4b6e / 6 true true
 ```
 
 Result (edited to show only two payments):
@@ -1961,47 +1960,51 @@ Result (edited to show only two payments):
 {
   "transactions": [
     {
-      "address": "yYYFByVqsqCNfJ6J8i7rWZuW7a6paphxTM",
-      "category": "generate",
-      "amount": 11.25000784,
-      "label": "Mining",
+      "address": "yeTgphnEhKjfTx2f57Ncf4AHLPhGKo1pyN",
+      "category": "send",
+      "amount": -0.10000000,
+      "label": "",
       "vout": 0,
-      "confirmations": 217129,
+      "fee": -0.00000225,
+      "confirmations": 1090,
       "instantlock": true,
       "instantlock_internal": false,
       "chainlock": true,
-      "generated": true,
-      "blockhash": "00000d6fab6ee232096d3c33c813684e249e6a23e5e42b25122fd3a60249fec4",
-      "blockindex": 0,
-      "blocktime": 1573452255,
-      "txid": "f1ebc584d6aa9c3750ed3bff8e794c190f7046ac86386b6e61c05886c3bd0200",
+      "blockhash": "000000f57f3228da3c544cd9a44e9b869648f0acd5e4cddcda10d576545a6363",
+      "blockheight": 874910,
+      "blockindex": 2,
+      "blocktime": 1690306466,
+      "txid": "54843571f544a46a2901a499857bbb79a340eba57f0c31e0c7cc8883ccdbc719",
       "walletconflicts": [
       ],
-      "time": 1573452255,
-      "timereceived": 1573478830
+      "time": 1690306444,
+      "timereceived": 1690306444,
+      "abandoned": false
     },
     {
-      "address": "yPAaweTvCYXaoUwxMFJ31sTdKiARUBZYhd",
-      "category": "send",
-      "amount": -10.00010000,
+      "address": "yeTgphnEhKjfTx2f57Ncf4AHLPhGKo1pyN",
+      "category": "receive",
+      "amount": 0.10000000,
+      "label": "",
       "vout": 0,
-      "fee": 10.00010000,
-      "confirmations": 36635,
+      "confirmations": 1090,
       "instantlock": true,
       "instantlock_internal": false,
       "chainlock": true,
-      "blockhash": "0000068eee543783408586f3895afe45839ed1bf6f586566cd56f0449fd1f5ce",
-      "blockindex": 11,
-      "blocktime": 1601325843,
-      "txid": "3b8d8ff1d539391c8dfb176bda2c012c08924ac0fbbc098c890412e22af80800",
+      "blockhash": "000000f57f3228da3c544cd9a44e9b869648f0acd5e4cddcda10d576545a6363",
+      "blockheight": 874910,
+      "blockindex": 2,
+      "blocktime": 1690306466,
+      "txid": "54843571f544a46a2901a499857bbb79a340eba57f0c31e0c7cc8883ccdbc719",
       "walletconflicts": [
       ],
-      "time": 1601325735,
-      "timereceived": 1601325735,
-      "abandoned": false
-    }
+      "time": 1690306444,
+      "timereceived": 1690306444
+    },
   ],
-  "lastblock": "000001f419feac4ce2ec47190b5d380ce137f35f3a3e13b322ff89428fe75f2c"
+  "removed": [
+  ],
+  "lastblock": "0000017d9ae3c1e4a53b5871936a09912aca5d6131b0cc0aeb886145abefc4e7"
 }
 ```
 
