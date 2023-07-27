@@ -983,7 +983,7 @@ Result:
 
 ```json
 {
-    "amount": -50.00000000,
+  "amount": -50.00000000,
   "fee": -0.00030000,
   "confirmations": 810136,
   "instantlock": true,
