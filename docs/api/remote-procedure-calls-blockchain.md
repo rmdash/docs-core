@@ -410,27 +410,15 @@ Name | Type | Presence | Description
 →<br>`pruneheight` | number (int) | Optional<br>(0 or 1) | *Added in Bitcoin Core 0.11.0*<br><br>The lowest-height complete block stored if pruning is activated
 →<br>`automatic_pruning` | bool | Required<br>(exactly 1) | *Added in Dash Core 0.16.0*<br><br>Whether automatic pruning is enabled (only present if pruning is enabled)
 →<br>`prune_target_size` | number (int) | Optional<br>(0 or 1) | *Added in Dash Core 0.16.0*<br><br>The target size used by pruning (only present if automatic pruning is enabled)
-→<br>`softforks` | array | Required<br>(exactly 1) | *Added in Bitcoin Core 0.12.0*<br><br>An array of objects each describing a current or previous soft fork
-→ →<br>Softfork | object | Required<br>(0 or more) | A specific softfork
-→ → →<br>`id` | string | Required<br>(exactly 1) | The name of the softfork
-→ → →<br>`version` | numeric<br>(int) | Required<br>(exactly 1) | The block version used for the softfork
-→ → →<br>`enforce` | string : object | Optional<br>(0 or 1) | The progress toward enforcing the softfork rules for new-version blocks
-→ → → →<br>`status` | bool | Required<br>(exactly 1) | Indicates if the threshold was reached
-→ → → →<br>`found` | numeric<br>(int) | Optional<br>(0 or 1) | Number of blocks that support the softfork
-→ → → →<br>`required` | numeric<br>(int) | Optional<br>(0 or 1) | Number of blocks that are required to reach the threshold
-→ → → →<br>`window` | numeric<br>(int) | Optional<br>(0 or 1) | The maximum size of examined window of recent blocks
-→ → →<br>`reject` | object | Optional<br>(0 or 1) | The progress toward enforcing the softfork rules for new-version blocks
-→ → → →<br>`status` | bool | Optional<br>(0 or 1) | Indicates if the threshold was reached
-→ → → →<br>`found` | numeric<br>(int) | Optional<br>(0 or 1) | Number of blocks that support the softfork
-→ → → →<br>`required` | numeric<br>(int) | Optional<br>(0 or 1) | Number of blocks that are required to reach the threshold
-→ → → →<br>`window` | numeric<br>(int) | Optional<br>(0 or 1) | The maximum size of examined window of recent blocks
-→<br>`bip9_softforks` | object | Required<br>(exactly 1) | *Added in Bitcoin Core 0.12.1*<br><br>The status of BIP9 softforks in progress
-→ →<br>Name | string : object | Required<br>(0 or more) | A specific BIP9 softfork
-→ → →<br>`status` | string | Required<br>(exactly 1) | Set to one of the following reasons:<br>• `defined` if voting hasn't started yet<br>• `started` if the voting has started <br>• `locked_in` if the voting was successful but the softfork hasn't been activated yet<br>• `active` if the softfork was activated<br>• `failed` if the softfork has not receieved enough votes
-→ → →<br>`bit` | numeric<br>(int) | Optional<br>(0 or 1) | The bit (0-28) in the block version field used to signal this softfork.  Field is only shown when status is `started`
-→ → →<br>`startTime` | numeric<br>(int) | Required<br>(exactly 1) | The Unix epoch time when the softfork voting begins
-→ → →<br>`timeout` | numeric<br>(int) | Required<br>(exactly 1) | The Unix epoch time at which the deployment is considered failed if not yet locked in
-→ → →<br>`since` | numeric<br>(int) | Required<br>(exactly 1) | *Added in Bitcoin Core 0.14.0*<br><br>The height of the first block to which the status applies
+→<br>`softforks` | array | Required<br>(exactly 1) | **Revised significantly in Dash Core 20.0.0**<br><br>An array of objects each describing a current or previous soft fork
+→ →<br>Softfork | object | Required<br>(0 or more) | The name of a specific softfork
+→ → →<br>`type`          | string  | Required | One of "buried", "bip9"
+→ → →<br>`bip9`          | object  | Optional | Status of bip9 softforks (only for "bip9" type)
+→ → → →<br>`status`       | string  | Required | One of "defined", "started", "locked_in", "active", "failed"
+→ → → →<br>`bit`          | numeric | Optional | The bit (0-28) in the block version field used to signal this softfork (only for "started" status)
+→ → → →<br>`start_time`   | numeric | Required | The minimum median time past of a block at which the bit gains its meaning
+→ → → →<br>`timeout`      | numeric | Required | The median time past of a block at which the deployment is considered failed if not yet locked in
+→ → → →<br>`since`        | numeric | Required | Height of the first block to which the status applies
 → → →<br>`statistics` | string : object | Required<br>(exactly 1) | *Added in Dash Core 0.15.0*<br><br>Numeric statistics about BIP9 signaling for a softfork (only for \started\" status)"
 → → → →<br>`period` | numeric<br>(int) | Optional<br>(0 or 1) | *Added in Dash Core 0.15.0*<br><br>The length in blocks of the BIP9 signaling period.  Field is only shown when status is `started`
 → → → →<br>`threshold` | numeric<br>(int) | Optional<br>(0 or 1) | *Added in Dash Core 0.15.0*<br><br>The number of blocks with the version bit set required to activate the feature.  Field is only shown when status is `started`
