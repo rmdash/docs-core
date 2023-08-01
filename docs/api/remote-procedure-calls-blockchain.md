@@ -1327,58 +1327,57 @@ Name | Type | Presence | Description
 → →<br>`unbroadcast` | bool | Required<br>(exactly 1) | **Added in Dash Core 20.0.0**<br>True if this transaction  is currently unbroadcast (initial broadcast not yet acknowledged by any peers)
 → →<br>`instantlock` | bool | Required<br>(exactly 1) | Set to `true` if this transaction was locked via InstantSend
 
-*Examples from Dash Core 0.17.0*
+*Examples from Dash Core 20.0.0*
 
 The default (`false`):
 
 ``` bash
-dash-cli getmempooldescendants d64eb30e5435e7a4564df9d06525a8ab\
-48858fdaf111661d1e7874a72cebc132
+dash-cli getmempooldescendants 414735b9b4da8232299b25510628e321ba7d2adfb042f7c6437ad3b0f7793b80
 ```
 
 Result:
 
 ``` json
 [
-  "dc63e7f6929658feade06fec1eeaf43b3160095d66a9b59f57e77e56c20241fc"
+  "94445715afd59a7ecc2fd6d62e42905194e91633e8f54b459f605fe0d780fe99"
 ]
 ```
 
 Verbose output (`true`):
 
 ``` bash
-dash-cli getmempooldescendants d64eb30e5435e7a4564df9d06525a8ab\
-48858fdaf111661d1e7874a72cebc132 true
+dash-cli getmempooldescendants 414735b9b4da8232299b25510628e321ba7d2adfb042f7c6437ad3b0f7793b80 true
 ```
 
 Result:
 
 ``` json
 {
-  "dc63e7f6929658feade06fec1eeaf43b3160095d66a9b59f57e77e56c20241fc": {
+  "94445715afd59a7ecc2fd6d62e42905194e91633e8f54b459f605fe0d780fe99": {
     "fees": {
-      "base": 0.00000226,
-      "modified": 0.00000226,
-      "ancestor": 0.00000600,
-      "descendant": 0.00000226
+      "base": 0.00000225,
+      "modified": 0.00000225,
+      "ancestor": 0.00000450,
+      "descendant": 0.00000225
     },
-    "size": 226,
-    "fee": 0.00000226,
-    "modifiedfee": 0.00000226,
-    "time": 1610552427,
-    "height": 425538,
+    "vsize": 225,
+    "fee": 0.00000225,
+    "modifiedfee": 0.00000225,
+    "time": 1690906537,
+    "height": 879144,
     "descendantcount": 1,
-    "descendantsize": 226,
-    "descendantfees": 226,
+    "descendantsize": 225,
+    "descendantfees": 225,
     "ancestorcount": 2,
-    "ancestorsize": 599,
-    "ancestorfees": 600,
+    "ancestorsize": 450,
+    "ancestorfees": 450,
     "depends": [
-      "d64eb30e5435e7a4564df9d06525a8ab48858fdaf111661d1e7874a72cebc132"
+      "414735b9b4da8232299b25510628e321ba7d2adfb042f7c6437ad3b0f7793b80"
     ],
     "spentby": [
     ],
-    "instantlock": true
+    "instantlock": "true",
+    "unbroadcast": false
   }
 }
 ```
