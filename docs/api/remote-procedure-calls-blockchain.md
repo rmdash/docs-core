@@ -427,7 +427,7 @@ Name | Type | Presence | Description
 → → →<br>`possible` | bool | Optional<br>(0 or 1) | *Added in Bitcoin Core 0.11.0*<br><br>Returns false if there are not enough blocks left in this period to pass activation threshold.  Field is only shown when status is `started`
 →<br>`warnings` | string | Optional<br>(0 or 1) | *Added in Dash Core 0.16.0*<br><br>Returns any network and blockchain warnings
 
-*Example from Dash Core 0.16.0*
+*Example from Dash Core 20.0.0*
 
 ``` bash
 dash-cli -testnet getblockchaininfo
@@ -437,77 +437,77 @@ Result:
 
 ``` json
 {
-  "chain": "main",
-  "blocks": 1909961,
-  "headers": 1909961,
-  "bestblockhash": "0000000000000009febe85de43791900fe62d2a7b94854fe6c3294933f667dd8",
-  "difficulty": 146758684.1665871,
-  "mediantime": 1690314847,
-  "verificationprogress": 0.999999043520192,
+  "chain": "test",
+  "blocks": 879157,
+  "headers": 879157,
+  "bestblockhash": "000000a11e129e9bc62bcc38ef758b9172f3bafb8e812ed06916ee2b58dbaf12",
+  "difficulty": 0.004223033929131131,
+  "mediantime": 1690908233,
+  "verificationprogress": 0.9999999935243107,
   "initialblockdownload": false,
-  "chainwork": "0000000000000000000000000000000000000000000088a8449d7e6d973a368e",
-  "size_on_disk": 34826013357,
+  "chainwork": "00000000000000000000000000000000000000000000000002d68ce35ba5fe4c",
+  "size_on_disk": 3044171242,
   "pruned": false,
   "softforks": {
     "bip34": {
       "type": "buried",
       "active": true,
-      "height": 951
+      "height": 76
     },
     "bip66": {
       "type": "buried",
       "active": true,
-      "height": 245817
+      "height": 2075
     },
     "bip65": {
       "type": "buried",
       "active": true,
-      "height": 619382
+      "height": 2431
     },
     "bip147": {
       "type": "buried",
       "active": true,
-      "height": 939456
+      "height": 4300
     },
     "csv": {
       "type": "buried",
       "active": true,
-      "height": 622944
+      "height": 8064
     },
     "dip0001": {
       "type": "buried",
       "active": true,
-      "height": 782208
+      "height": 5500
     },
     "dip0003": {
       "type": "buried",
       "active": true,
-      "height": 1028160
+      "height": 7000
     },
     "dip0008": {
       "type": "buried",
       "active": true,
-      "height": 1088640
+      "height": 78800
     },
     "dip0020": {
       "type": "buried",
       "active": true,
-      "height": 1516032
+      "height": 414100
     },
     "dip0024": {
       "type": "buried",
       "active": true,
-      "height": 1737792
+      "height": 769700
     },
     "realloc": {
       "type": "buried",
       "active": true,
-      "height": 1374912
+      "height": 387500
     },
     "v19": {
       "type": "buried",
       "active": true,
-      "height": 1899072
+      "height": 850100
     },
     "v20": {
       "type": "bip9",
@@ -520,7 +520,7 @@ Result:
       "active": false
     }
   },
-  "warnings": "This is a pre-release test build - use at your own risk - do not use for mining or merchant applications"
+  "warnings": "Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade."
 }
 ```
 
