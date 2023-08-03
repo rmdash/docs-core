@@ -1409,7 +1409,7 @@ TXID | string (hex) | Required<br>(exactly 1) | The TXID of a transaction in the
 Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | object | Required<br>(exactly 1) | A object containing transactions currently in the memory pool.  May be empty
-→<br>`size` | number (int) | Required<br>(exactly 1) | The size of the serialized transaction in bytes
+→<br>`vsize` | number (int) | Required<br>(exactly 1) | The size of the serialized transaction in bytes
 →<br>`fee` | number (bitcoins) | Required<br>(exactly 1) | **Deprecated in Dash Core 0.17.0**<br><br>The transaction fee paid by the transaction in decimal bitcoins
 →<br>`modifiedfee` | number (bitcoins) | Required<br>(exactly 1) | **Deprecated in Dash Core 0.17.0**<br><br>The transaction fee with fee deltas used for mining priority in decimal bitcoins
 →<br>`time` | number (int) | Required<br>(exactly 1) | The time the transaction entered the memory pool, Unix epoch time format
