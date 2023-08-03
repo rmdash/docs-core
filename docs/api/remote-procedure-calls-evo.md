@@ -532,6 +532,25 @@ The `protx listdiff` RPC calculates a full MN list diff between two masternode l
 | ------- | ------- | -------------------- | -----------------------|
 | `block` | numeric | Required (exactly 1) | The ending block height|
 
+```bash
+dash-cli -testnet protx listdiff 7100 7135
+```
+
+Result:
+
+```json
+{
+  "baseHeight": 7100,
+  "blockHeight": 7135,
+  "addedMNs": [
+  ],
+  "removedMNs": [
+  ],
+  "updatedMNs": [
+  ]
+}
+```
+
 ### ProTx Register
 
 The `protx register` RPC creates a ProRegTx referencing an existing collateral and and sends it to the network.
