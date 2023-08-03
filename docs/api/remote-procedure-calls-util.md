@@ -34,6 +34,7 @@ Name | Type | Presence | Description
 `result` | object | Required<br>(exactly 1) | An object describing the multisig address
 →<br>`address` | string (base58) | Required<br>(exactly 1) | The P2SH address for this multisig redeem script
 →<br>`redeemScript` | string (hex) | Required<br>(exactly 1) | The multisig redeem script encoded as hex
+→<br>`descriptor` | string (hex) | Required<br>(exactly 1) | The descriptor for this multisig
 
 *Example from Dash Core 20.0.0*
 
