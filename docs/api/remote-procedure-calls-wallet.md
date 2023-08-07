@@ -932,7 +932,7 @@ _Parameter #3---whether or not to include the decoded transaction_
 
 | Name    | Type | Presence                | Description                                                                                                      |
 | ------- | ---- | ----------------------- | ---------------------------------------------------------------------------------------------------------------  |
-| verbose | bool | Optional<br>(exactly 1) | Whether to include a `decoded` field containing the decoded transaction (equivalent to RPC [`decoderawtransaction`](../api/remote-procedure-calls-raw-transactions.html#decoderawtransaction)) |
+| verbose | bool | Optional<br>(exactly 1) | Whether to include a `decoded` field containing the decoded transaction (equivalent to RPC [`decoderawtransaction`](../api/remote-procedure-calls-raw-transactions.md#decoderawtransaction)) |
 
 _Result---a description of the transaction_
 
