@@ -543,10 +543,38 @@ Result:
   "baseHeight": 7100,
   "blockHeight": 7135,
   "addedMNs": [
+    {
+      "type": "Regular",
+      "proTxHash": "682b3e58e283081c51f2e8e7a7de5c7312a2e8074affaf389fafcc39c4805404",
+      "collateralHash": "4955dcb8f9f56705b2ce480369c8a0e50b05c3dd1770160c4ddd47515a87e290",
+      "collateralIndex": 1,
+      "collateralAddress": "ySbK2DePJxPzkeHD2ccnMmsJjvBK5tJSPU",
+      "operatorReward": 0,
+      "state": {
+        "version": 1,
+        "service": "64.193.62.206:19999",
+        "registeredHeight": 7134,
+        "lastPaidHeight": 7135,
+        "consecutivePayments": 0,
+        "PoSePenalty": 0,
+        "PoSeRevivedHeight": -1,
+        "PoSeBanHeight": -1,
+        "revocationReason": 0,
+        "ownerAddress": "yid7uAsVJzvSLrEekHuGNuY3KWCqJopyJ8",
+        "votingAddress": "yid7uAsVJzvSLrEekHuGNuY3KWCqJopyJ8",
+        "payoutAddress": "yf7kAvZXd49hnWaScRbbLP9LMKDvz1f1tp",
+        "pubKeyOperator": "05f2269374676476f00068b7cb168d124b7b780a92e8564e18edf45d77497abd9debf186ee98001a0c9a6dfccbab7a0a"
+      }
+    }
   ],
   "removedMNs": [
   ],
   "updatedMNs": [
+    {
+      "c48a44a9493eae641bea36992bc8c27eaaa33adb1884960f55cd259608d26d2f": {
+        "lastPaidHeight": 7134
+      }
+    }
   ]
 }
 ```
