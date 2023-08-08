@@ -410,36 +410,24 @@ Name | Type | Presence | Description
 →<br>`pruneheight` | number (int) | Optional<br>(0 or 1) | *Added in Bitcoin Core 0.11.0*<br><br>The lowest-height complete block stored if pruning is activated
 →<br>`automatic_pruning` | bool | Required<br>(exactly 1) | *Added in Dash Core 0.16.0*<br><br>Whether automatic pruning is enabled (only present if pruning is enabled)
 →<br>`prune_target_size` | number (int) | Optional<br>(0 or 1) | *Added in Dash Core 0.16.0*<br><br>The target size used by pruning (only present if automatic pruning is enabled)
-→<br>`softforks` | array | Required<br>(exactly 1) | *Added in Bitcoin Core 0.12.0*<br><br>An array of objects each describing a current or previous soft fork
-→ →<br>Softfork | object | Required<br>(0 or more) | A specific softfork
-→ → →<br>`id` | string | Required<br>(exactly 1) | The name of the softfork
-→ → →<br>`version` | numeric<br>(int) | Required<br>(exactly 1) | The block version used for the softfork
-→ → →<br>`enforce` | string : object | Optional<br>(0 or 1) | The progress toward enforcing the softfork rules for new-version blocks
-→ → → →<br>`status` | bool | Required<br>(exactly 1) | Indicates if the threshold was reached
-→ → → →<br>`found` | numeric<br>(int) | Optional<br>(0 or 1) | Number of blocks that support the softfork
-→ → → →<br>`required` | numeric<br>(int) | Optional<br>(0 or 1) | Number of blocks that are required to reach the threshold
-→ → → →<br>`window` | numeric<br>(int) | Optional<br>(0 or 1) | The maximum size of examined window of recent blocks
-→ → →<br>`reject` | object | Optional<br>(0 or 1) | The progress toward enforcing the softfork rules for new-version blocks
-→ → → →<br>`status` | bool | Optional<br>(0 or 1) | Indicates if the threshold was reached
-→ → → →<br>`found` | numeric<br>(int) | Optional<br>(0 or 1) | Number of blocks that support the softfork
-→ → → →<br>`required` | numeric<br>(int) | Optional<br>(0 or 1) | Number of blocks that are required to reach the threshold
-→ → → →<br>`window` | numeric<br>(int) | Optional<br>(0 or 1) | The maximum size of examined window of recent blocks
-→<br>`bip9_softforks` | object | Required<br>(exactly 1) | *Added in Bitcoin Core 0.12.1*<br><br>The status of BIP9 softforks in progress
-→ →<br>Name | string : object | Required<br>(0 or more) | A specific BIP9 softfork
-→ → →<br>`status` | string | Required<br>(exactly 1) | Set to one of the following reasons:<br>• `defined` if voting hasn't started yet<br>• `started` if the voting has started <br>• `locked_in` if the voting was successful but the softfork hasn't been activated yet<br>• `active` if the softfork was activated<br>• `failed` if the softfork has not receieved enough votes
-→ → →<br>`bit` | numeric<br>(int) | Optional<br>(0 or 1) | The bit (0-28) in the block version field used to signal this softfork.  Field is only shown when status is `started`
-→ → →<br>`startTime` | numeric<br>(int) | Required<br>(exactly 1) | The Unix epoch time when the softfork voting begins
-→ → →<br>`timeout` | numeric<br>(int) | Required<br>(exactly 1) | The Unix epoch time at which the deployment is considered failed if not yet locked in
-→ → →<br>`since` | numeric<br>(int) | Required<br>(exactly 1) | *Added in Bitcoin Core 0.14.0*<br><br>The height of the first block to which the status applies
+→<br>`softforks` | array | Required<br>(exactly 1) | **Revised significantly in Dash Core 20.0.0**<br><br>An array of objects each describing a current or previous soft fork
+→ →<br>Softfork | object | Required<br>(0 or more) | The name of a specific softfork
+→ → →<br>`type`          | string  | Required | One of "buried", "bip9"
+→ → →<br>`bip9`          | object  | Optional | Status of bip9 softforks (only for "bip9" type)
+→ → → →<br>`status`       | string  | Required | One of "defined", "started", "locked_in", "active", "failed"
+→ → → →<br>`bit`          | numeric | Optional | The bit (0-28) in the block version field used to signal this softfork (only for "started" status)
+→ → → →<br>`start_time`   | numeric | Required | The minimum median time past of a block at which the bit gains its meaning
+→ → → →<br>`timeout`      | numeric | Required | The median time past of a block at which the deployment is considered failed if not yet locked in
+→ → → →<br>`since`        | numeric | Required | Height of the first block to which the status applies
 → → →<br>`statistics` | string : object | Required<br>(exactly 1) | *Added in Dash Core 0.15.0*<br><br>Numeric statistics about BIP9 signaling for a softfork (only for \started\" status)"
 → → → →<br>`period` | numeric<br>(int) | Optional<br>(0 or 1) | *Added in Dash Core 0.15.0*<br><br>The length in blocks of the BIP9 signaling period.  Field is only shown when status is `started`
 → → → →<br>`threshold` | numeric<br>(int) | Optional<br>(0 or 1) | *Added in Dash Core 0.15.0*<br><br>The number of blocks with the version bit set required to activate the feature.  Field is only shown when status is `started`
 → → → →<br>`elapsed` | numeric<br>(int) | Optional<br>(0 or 1) | *Added in Dash Core 0.15.0*<br><br>The number of blocks elapsed since the beginning of the current period.  Field is only shown when status is `started`
 → → → →<br>`count` | numeric<br>(int) | Optional<br>(0 or 1) | *Added in Dash Core 0.15.0*<br><br>The number of blocks with the version bit set in the current period.  Field is only shown when status is `started`
 → → →<br>`possible` | bool | Optional<br>(0 or 1) | *Added in Bitcoin Core 0.11.0*<br><br>Returns false if there are not enough blocks left in this period to pass activation threshold.  Field is only shown when status is `started`
-→<br>`warnings` | bool | Optional<br>(0 or 1) | *Added in Dash Core 0.16.0*<br><br>Returns any network and blockchain warnings
+→<br>`warnings` | string | Optional<br>(0 or 1) | *Added in Dash Core 0.16.0*<br><br>Returns any network and blockchain warnings
 
-*Example from Dash Core 0.16.0*
+*Example from Dash Core 20.0.0*
 
 ``` bash
 dash-cli -testnet getblockchaininfo
@@ -449,77 +437,77 @@ Result:
 
 ``` json
 {
-  "chain": "main",
-  "blocks": 1909961,
-  "headers": 1909961,
-  "bestblockhash": "0000000000000009febe85de43791900fe62d2a7b94854fe6c3294933f667dd8",
-  "difficulty": 146758684.1665871,
-  "mediantime": 1690314847,
-  "verificationprogress": 0.999999043520192,
+  "chain": "test",
+  "blocks": 879157,
+  "headers": 879157,
+  "bestblockhash": "000000a11e129e9bc62bcc38ef758b9172f3bafb8e812ed06916ee2b58dbaf12",
+  "difficulty": 0.004223033929131131,
+  "mediantime": 1690908233,
+  "verificationprogress": 0.9999999935243107,
   "initialblockdownload": false,
-  "chainwork": "0000000000000000000000000000000000000000000088a8449d7e6d973a368e",
-  "size_on_disk": 34826013357,
+  "chainwork": "00000000000000000000000000000000000000000000000002d68ce35ba5fe4c",
+  "size_on_disk": 3044171242,
   "pruned": false,
   "softforks": {
     "bip34": {
       "type": "buried",
       "active": true,
-      "height": 951
+      "height": 76
     },
     "bip66": {
       "type": "buried",
       "active": true,
-      "height": 245817
+      "height": 2075
     },
     "bip65": {
       "type": "buried",
       "active": true,
-      "height": 619382
+      "height": 2431
     },
     "bip147": {
       "type": "buried",
       "active": true,
-      "height": 939456
+      "height": 4300
     },
     "csv": {
       "type": "buried",
       "active": true,
-      "height": 622944
+      "height": 8064
     },
     "dip0001": {
       "type": "buried",
       "active": true,
-      "height": 782208
+      "height": 5500
     },
     "dip0003": {
       "type": "buried",
       "active": true,
-      "height": 1028160
+      "height": 7000
     },
     "dip0008": {
       "type": "buried",
       "active": true,
-      "height": 1088640
+      "height": 78800
     },
     "dip0020": {
       "type": "buried",
       "active": true,
-      "height": 1516032
+      "height": 414100
     },
     "dip0024": {
       "type": "buried",
       "active": true,
-      "height": 1737792
+      "height": 769700
     },
     "realloc": {
       "type": "buried",
       "active": true,
-      "height": 1374912
+      "height": 387500
     },
     "v19": {
       "type": "buried",
       "active": true,
-      "height": 1899072
+      "height": 850100
     },
     "v20": {
       "type": "bip9",
@@ -532,7 +520,7 @@ Result:
       "active": false
     }
   },
-  "warnings": "This is a pre-release test build - use at your own risk - do not use for mining or merchant applications"
+  "warnings": "Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade."
 }
 ```
 
@@ -1327,58 +1315,57 @@ Name | Type | Presence | Description
 → →<br>`unbroadcast` | bool | Required<br>(exactly 1) | **Added in Dash Core 20.0.0**<br>True if this transaction  is currently unbroadcast (initial broadcast not yet acknowledged by any peers)
 → →<br>`instantlock` | bool | Required<br>(exactly 1) | Set to `true` if this transaction was locked via InstantSend
 
-*Examples from Dash Core 0.17.0*
+*Examples from Dash Core 20.0.0*
 
 The default (`false`):
 
 ``` bash
-dash-cli getmempooldescendants d64eb30e5435e7a4564df9d06525a8ab\
-48858fdaf111661d1e7874a72cebc132
+dash-cli getmempooldescendants 414735b9b4da8232299b25510628e321ba7d2adfb042f7c6437ad3b0f7793b80
 ```
 
 Result:
 
 ``` json
 [
-  "dc63e7f6929658feade06fec1eeaf43b3160095d66a9b59f57e77e56c20241fc"
+  "94445715afd59a7ecc2fd6d62e42905194e91633e8f54b459f605fe0d780fe99"
 ]
 ```
 
 Verbose output (`true`):
 
 ``` bash
-dash-cli getmempooldescendants d64eb30e5435e7a4564df9d06525a8ab\
-48858fdaf111661d1e7874a72cebc132 true
+dash-cli getmempooldescendants 414735b9b4da8232299b25510628e321ba7d2adfb042f7c6437ad3b0f7793b80 true
 ```
 
 Result:
 
 ``` json
 {
-  "dc63e7f6929658feade06fec1eeaf43b3160095d66a9b59f57e77e56c20241fc": {
+  "94445715afd59a7ecc2fd6d62e42905194e91633e8f54b459f605fe0d780fe99": {
     "fees": {
-      "base": 0.00000226,
-      "modified": 0.00000226,
-      "ancestor": 0.00000600,
-      "descendant": 0.00000226
+      "base": 0.00000225,
+      "modified": 0.00000225,
+      "ancestor": 0.00000450,
+      "descendant": 0.00000225
     },
-    "size": 226,
-    "fee": 0.00000226,
-    "modifiedfee": 0.00000226,
-    "time": 1610552427,
-    "height": 425538,
+    "vsize": 225,
+    "fee": 0.00000225,
+    "modifiedfee": 0.00000225,
+    "time": 1690906537,
+    "height": 879144,
     "descendantcount": 1,
-    "descendantsize": 226,
-    "descendantfees": 226,
+    "descendantsize": 225,
+    "descendantfees": 225,
     "ancestorcount": 2,
-    "ancestorsize": 599,
-    "ancestorfees": 600,
+    "ancestorsize": 450,
+    "ancestorfees": 450,
     "depends": [
-      "d64eb30e5435e7a4564df9d06525a8ab48858fdaf111661d1e7874a72cebc132"
+      "414735b9b4da8232299b25510628e321ba7d2adfb042f7c6437ad3b0f7793b80"
     ],
     "spentby": [
     ],
-    "instantlock": true
+    "instantlock": "true",
+    "unbroadcast": false
   }
 }
 ```
@@ -1409,7 +1396,7 @@ TXID | string (hex) | Required<br>(exactly 1) | The TXID of a transaction in the
 Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | object | Required<br>(exactly 1) | A object containing transactions currently in the memory pool.  May be empty
-→<br>`vsize` | number (int) | Required<br>(exactly 1) | The size of the serialized transaction in bytes
+→<br>`vsize` | number (int) | Required<br>(exactly 1) | The virtual transaction size. This can be different from actual serialized size for high-sigop transactions.
 →<br>`fee` | number (bitcoins) | Required<br>(exactly 1) | **Deprecated in Dash Core 0.17.0**<br><br>The transaction fee paid by the transaction in decimal bitcoins
 →<br>`modifiedfee` | number (bitcoins) | Required<br>(exactly 1) | **Deprecated in Dash Core 0.17.0**<br><br>The transaction fee with fee deltas used for mining priority in decimal bitcoins
 →<br>`time` | number (int) | Required<br>(exactly 1) | The time the transaction entered the memory pool, Unix epoch time format
